@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIGGY BANK</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">
+                <img src="./images/piggy.svg" alt="" class="logo">
+            </a>
+            <button id="connectBtn">Connect</button>
+        </nav>
+        <header>
+            <div class="circle">
+                <img src="./images/BTC.svg" alt="" class="logo">
+                <img src="./images/BtcCurrency.svg" alt="" class="logo">
+                <img src="./images/piggy.svg" alt="" class="logo">
+                <img src="./images/eth1.svg" alt="" class="logo">
+                <h1>PIGGY BANK</h1>
+            </div>
+            <div class="box">
+                <img src="./images/eth.svg" alt="" class="logo">
+                <h1>PAYMENT</h1>
+                <div class="innerBox">
+                    <button id="toggleDepoBtn">Deposit</button>
+                    <button id="withdrawBtn">Withdraw</button>
+                </div>
+                    <button id="getBalanceBtn">Balance</button>
+                    <!-- <img src="./images/review.svg" alt="" class="logo"> -->
+            </div>
+        </header>
+        <div class="overlay">
+            <form action="">
+                <img src="./images/undraw_cancel_re_pkdm.svg" alt="" id="closeBtn">
+                <h1>DEPOSIT FORM</h1>
+             <div class="row">
+                <label for="amount">ETH</label>
+                <input type="number" id="amount" value="0">
+             </div>
+             <button id="depositBtn">Deposit</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="dist/sweetalert2.all.min.js"></script>
+<script src="dist/sweetalert2.all.js"></script>
+<script src="./main.js" type="module"></script>
+
+</html>
