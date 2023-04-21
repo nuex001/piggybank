@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/PiggyBank.sol": {
+      "content": "//SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.8;\r\n\r\ncontract PiggyBank {\r\n    event Deposit(uint amount);\r\n    event Withdraw(uint amount);\r\n    // event MappedTrans(address indexed depositor, uint amount);\r\n    address immutable i_owner;\r\n    mapping(address => uint256) public s_mappedTrans;\r\n\r\n    // receive() external payable {\r\n    //     mappedTrans[msg.sender] = msg.value;\r\n    //    emit Deposit(msg.value);\r\n    // }\r\n    constructor() {\r\n        i_owner = msg.sender;\r\n    }\r\n\r\n    // Had to use this save cause of i hadn't done for interacting with recieve in my frontend\r\n    function deposit() external payable {\r\n        s_mappedTrans[msg.sender] = msg.value;\r\n        emit Deposit(msg.value);\r\n    }\r\n\r\n    function withdraw() external {\r\n        require(msg.sender == i_owner, \"Not Owner\");\r\n        emit Withdraw(address(this).balance);\r\n        selfdestruct(payable(msg.sender)); //hardhat is saying it has been depreciated\r\n    }\r\n\r\n    //GET MAPPED TRANS\r\n    function getDepositor(\r\n        address fundingAddress\r\n    ) public view returns (uint256 amount) {\r\n        amount = s_mappedTrans[fundingAddress];\r\n    }\r\n\r\n    function getOwner() public view returns (address) {\r\n        return i_owner;\r\n    }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
