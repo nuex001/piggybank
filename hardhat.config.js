@@ -9,12 +9,12 @@ require("hardhat-deploy")
 /** @type import('hardhat/config').HardhatUserConfig */
 const SEPOLIA_RPC_URL =
   process.env.SEPOLIA_RPC_URL ||
-  "https://eth-goerli.g.alchemy.com/v2/3gXDwfeRUhcACUjve4WqAn-PwourfBUo"
+  "https://eth-sepolia.g.alchemy.com/v2/cGXRAldzZ1mY3b5IxZvYqyZlBQUt-NUO"
 const PRIVATE_KEY =
   process.env.PRIVATE_KEY ||
   "b8a31a28c1ca2c12d71cc9c0bde2304d0f11e8f900efd1838624d9357c4cfe89"
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
-
+// console.log(SEPOLIA_RPC_URL, PRIVATE_KEY);
 module.exports = {
   solidity: "0.8.18",
   defaultNetwork: "hardhat",
@@ -25,7 +25,7 @@ module.exports = {
     sepolia: {
       url: SEPOLIA_RPC_URL,
       accounts: [PRIVATE_KEY],
-      chainId: 5,
+      chainId: 11155111,
       blockConfirmations: 6,
     },
   },
